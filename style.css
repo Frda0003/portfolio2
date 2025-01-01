@@ -16,31 +16,74 @@ body {
   background-color: var(--grey);
 }
 
-h1,
-h2 {
+h1 {
   font-family: "Oswald", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-family: "Oswald", serif;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 1.5rem;
 }
 
 p {
   font-family: "Montserrat", serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 1rem;
-  line-height: 20px;
+  font-size: 0.75rem;
+  line-height: 160%;
 }
 
-/**************************************************** HERO-SECTION ***********************************************/
+@media (min-width: 700px) {
+  h1 {
+    font-family: "Oswald", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vw;
+  }
 
-.hero_section {
-  position: absolute;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  h2 {
+    font-family: "Oswald", serif;
+    font-weight: 350;
+    font-style: normal;
+    font-size: 3vw;
+  }
+
+  p {
+    font-family: "Montserrat", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.5vw;
+    line-height: 175%;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-family: "Oswald", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-family: "Oswald", serif;
+    font-weight: 350;
+    font-style: normal;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-family: "Montserrat", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 175%;
+  }
 }
 
 /****************************************************** HEADER ************************************************/
@@ -87,9 +130,19 @@ header {
 .nav-links a:hover {
   color: var(--red);
   transition: 0.3s ease;
+  font-weight: 400;
 }
 
 .header-text {
+  display: none;
+}
+
+.header-text2 {
+  display: flex;
+}
+
+.header-text,
+.header-text2 {
   margin-left: auto; /* Push text to the right */
   color: var(--black); /* Set text color */
   padding-right: 10px;
@@ -97,8 +150,10 @@ header {
   transition: 0.3s ease;
 }
 
-.header-text:hover {
+.header-text:hover,
+.header-text2:hover {
   color: var(--red);
+  font-weight: 500;
   transition: 0.3s ease;
 }
 
@@ -143,10 +198,25 @@ header {
     display: none; /* Skjul links som standard */
     flex-direction: column;
     position: absolute;
-    background-color: var(--menu-color);
+    background-color: var(--grey);
     top: 75px; /* Juster afhængigt af navbarens højde */
     left: 0;
     font-size: 1rem;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+
+  .nav-links li a.active {
+    font-weight: bold;
+    text-decoration: underline 2px;
+  }
+
+  .header-text {
+    display: flex;
+  }
+
+  .header-text2 {
+    display: none;
   }
 
   .nav-links.show {
@@ -188,100 +258,232 @@ header {
     height: 2px;
     background-color: var(--black);
     border-radius: 5px;
-    transition: 0.3s ease;
   }
 }
 
-/************************************************ MAIN FRONTPAGE ****************************************/
+/************************************************* MAIN (FRONTPAGE) *****************************************/
 
-.hometext_container {
+/********************* HERO-SECTION ******************/
+
+.hero_section {
   display: flex;
-  width: 100%;
   height: 100vh;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
 
-.hometext_container h1 {
-  transition: 0.3s ease;
-  opacity: 0.5;
+/********************* CARDS ******************/
+
+/* .card_container {
+  position: relative;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  margin-bottom: 12.5%;
 }
 
-.hometext_container h1:hover {
-  scale: 1.5;
+.card {
+  padding: 5%;
+  margin-bottom: 10%;
+  background-color: var(--black);
+  border-radius: 5px;
   transition: 0.3s ease;
-  cursor: pointer;
-  color: var(--red);
-  opacity: 1;
 }
 
-.hometext_container a {
+.card:hover {
+  transform: scale(1.1);
+  opacity: 0.4;
+  transition: 0.3s ease;
+}
+
+.card a {
   text-decoration: none;
-  color: var(--black);
-}
-
-/************************************************ MAIN UNDERSIDER ****************************************/
-
-.grid_1_1 {
-  margin: 10%;
-}
-
-.text_content h1 {
-  margin-bottom: 5%;
-  text-align: center;
-  font-size: 10vw;
-  transition: 0.3s ease;
-}
-
-.text_content h1:hover {
   color: var(--red);
-  transition: 0.3s ease;
 }
 
-.text_content p {
-  line-height: 175%;
-  font-size: 2.75vw;
-}
-
-.text_content a {
-  text-decoration: none;
-  color: var(--black);
-}
-
-.img_content {
-  margin-top: 15%;
-}
-
-.img_container {
+.card h2 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  z-index: 1;
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: 600;
+  justify-self: center;
+  padding-bottom: 5%;
 }
 
-.img_container img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 2px;
+.card img {
+  width: 100%;
+  object-fit: contain;
 }
 
-@media (min-width: 768px) {
-  .grid_1_1 {
+@media (min-width: 1200px) {
+  .card_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10%;
-    margin: 7.5%;
-  }
-
-  .text_content h1 {
+    gap: 7.5%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 10%;
-    text-align: center;
-    font-size: 9vw;
+  }
+} */
+
+/************************************************ MAIN ****************************************/
+
+.grid_1_1 {
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.grid_2_2 {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.grid_3_3 {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#grid_1_1 {
+  padding-top: 0;
+}
+
+#grid_3_3 {
+  padding-bottom: 0;
+}
+
+.container1 h1,
+.container1 h2 {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.container2 p {
+  font-size: 0.65rem;
+  font-style: italic;
+}
+
+.container1 a {
+  text-decoration: none;
+  color: var(--black);
+  transition: 0.3s ease;
+}
+
+.container1 a:hover {
+  font-weight: 900;
+  color: var(--red);
+  transition: 0.3s ease;
+}
+
+.container2,
+.container1 {
+  padding-top: 40px;
+}
+
+.container2 img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.grid_2_2 .container1 {
+  padding-top: 0px;
+}
+
+.grid_3_3 {
+  padding-bottom: 40px;
+}
+
+button {
+  align-items: center;
+  margin-top: 7.5%;
+  background-color: var(--red);
+  border: none;
+  color: var(--black);
+  padding: 12.5px 17.5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-family: "Oswald", serif;
+  font-weight: 650;
+  font-style: normal;
+  font-size: 0.75rem;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--black);
+  color: var(--red);
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+@media (min-width: 1200px) {
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    padding-top: 100px;
+    padding-right: 5%;
+    padding-left: 5%;
+    gap: 7.5%;
+    max-width: 2000px;
   }
 
-  .text_content p {
-    font-size: 1.5vw;
+  .grid_2_2 {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 0px;
+    gap: 7.5%;
+    max-width: 2000px;
+  }
+
+  .grid_3_3 {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 0px;
+    gap: 7.5%;
+    padding-bottom: 100px;
+    max-width: 2000px;
+  }
+
+  .grid_2_2 .container1 {
+    order: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  .container1 {
+    padding-top: 80px;
+    min-width: 500px;
+  }
+
+  .container2 {
+    padding-top: 125px;
+  }
+
+  .container2 img {
+    min-width: 550px;
+  }
+
+  button {
+    margin-top: 10%;
+    padding: 15px 20px;
+    font-size: 1rem;
   }
 }
 
