@@ -5,21 +5,6 @@ document.getElementById("menu-icon").addEventListener("click", function () {
   navLinks.classList.toggle("show"); // Toggler 'show' klassen
 });
 
-// ChatGPT
-/////////////// Adding event listeners to each button //////////////////
-const buttons = document.querySelectorAll('button[id^="project_button"]');
-
-buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    // Get the URL from the data-href attribute
-    const url = button.getAttribute("data-href");
-
-    // Open the URL in a new tab
-    window.open(url, "_blank");
-  });
-});
-// ChatGPT
-
 /////////////////// Videooverlay funktion ////////////
 
 const video = document.querySelector("#video");
