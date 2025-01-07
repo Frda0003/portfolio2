@@ -1,4 +1,5 @@
-////// Header funktionalitet https://frederikdamgaard14.dk/kea/02_web/01_website/website/index.html ////////////
+////// Header funktionalitet ////////////
+// link https://frederikdamgaard14.dk/kea/02_web/01_website/website/index.html
 
 document.getElementById("menu-icon").addEventListener("click", function () {
   const navLinks = document.getElementById("nav-links");
@@ -7,10 +8,10 @@ document.getElementById("menu-icon").addEventListener("click", function () {
 
 /////////////////// Videooverlay funktion ////////////
 
-const video = document.querySelector("#video");
+const videoPlayer = document.querySelector("#video");
 const overlayVideo = document.querySelector("#overlay_video");
 
-video.addEventListener("ended", showOverlay);
+videoPlayer.addEventListener("ended", showOverlay);
 
 function showOverlay() {
   overlayVideo.style.display = "flex";
